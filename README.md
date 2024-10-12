@@ -1,11 +1,11 @@
  👋 Hi, I'm Abdalazeez 
 
-#include <iostream>
+
+ #include <iostream>
 #include <string>
 using namespace std;
 
 const int Max_Size = 100;
-
 
 struct op {
     string operation = " ";
@@ -13,7 +13,6 @@ struct op {
     int value_new = 0;
     int value_index = 0;
 };
-
 
 /**
  * add
@@ -34,7 +33,6 @@ void add(int list[], int &top, int &element, op operationStack[], int &opTop) {
     }
 }
 
-
 void deleteelement(int list[], int &top, op operationStack[], int &opTop) {
     if (top >= 0) {
         int element = list[top--];
@@ -44,7 +42,6 @@ void deleteelement(int list[], int &top, op operationStack[], int &opTop) {
         cout << "Stack Is empty !!" << endl;
     }
 }
-
 
 void edit(int list[], int &top, int &index, int &newelement, op operationStack[], int &opTop) {
     if (index >= 0 && index <= top) {
@@ -56,7 +53,6 @@ void edit(int list[], int &top, int &index, int &newelement, op operationStack[]
         cout << "Index out of range!" << endl;
     }
 }
-
 
 void undo(int list[], int &top, op operationStack[], int &opTop, op redoStack[], int &redoTop) {
     if (opTop >= 0) {
@@ -77,10 +73,9 @@ void undo(int list[], int &top, op operationStack[], int &opTop, op redoStack[],
     }
 }
 
-
 void redo(int list[], int &top, op redoStack[], int &redoTop, op operationStack[], int &opTop) {
     if (redoTop >= 0) {
-       string action = redoStack[redoTop].operation;
+        string action = redoStack[redoTop].operation;
 
         if (action == "add") {
             add(list, top, redoStack[redoTop].value, operationStack, opTop);
@@ -96,7 +91,6 @@ void redo(int list[], int &top, op redoStack[], int &redoTop, op operationStack[
         cout << "No actions to redo!" << endl;
     }
 }
-
 
 void display(int list[], int top) {
     cout << "Stack: ";
@@ -176,4 +170,3 @@ int main() {
 
     return 0;
 }
-
